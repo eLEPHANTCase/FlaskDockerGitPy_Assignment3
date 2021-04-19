@@ -5,7 +5,7 @@ CREATE TABLE IF NOT EXISTS mileageOnFordsEscorts (
     `id` INT AUTO_INCREMENT,
     `escortYear` INT,
     `escortMiles` INT,
-    `escortPrice` NUMERIC,
+    `escortPrice` INT,
     primary key (`id`)
 );
 INSERT INTO mileageOnFordsEscorts
