@@ -65,10 +65,10 @@ def form_insert_post():
     return redirect("/", code=302)
 
 @app.route('/delete/<int:escort_id>', methods=['POST'])
-def form_delete_post(city_id):
+def form_delete_post(escort_id):
     cursor = mysql.get_db().cursor()
     sql_delete_query = """DELETE FROM mileageOnFordsEscorts WHERE id = %s """
-    cursor.execute(sql_delete_query, city_id)
+    cursor.execute(sql_delete_query, escort_id)
     mysql.get_db().commit()
     return redirect("/", code=302)
 
@@ -83,7 +83,7 @@ def api_browse() -> str:
     return resp
 
 
-@app.route('/api/v1/cities/<int:city_id>', methods=['GET'])
+@app.route('/api/v1/escorts/<int:escort_id>', methods=['GET'])
 def api_retrieve(escort_id) -> str:
     cursor = mysql.get_db().cursor()
     cursor.execute('SELECT * FROM mileageOnFordsEscorts WHERE id=%s', escort_id)
